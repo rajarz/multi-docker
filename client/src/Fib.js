@@ -35,7 +35,7 @@ class Fib extends Component {
   };
 
   async clearValues() {
-    await axios.post('/api/values/clear');
+    await axios.post('/api/clear');
     this.setState({ index: '' });
   }
 

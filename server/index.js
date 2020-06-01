@@ -51,7 +51,7 @@ app.get('/values/current', async (req, res) => {
   });
 });
 
-app.get('/values/clear', async (req, res) => {
+app.get('/clear', async (req, res) => {
   pgClient.query('DELETE FROM values');
   redisClient.flushall(() => {
     res.send("Data has been cleared");
