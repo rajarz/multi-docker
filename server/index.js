@@ -51,6 +51,13 @@ app.get('/values/current', async (req, res) => {
   });
 });
 
+app.get('/values/clear', async (req, res) => {
+  pgClient.query('DELETE FROM values');
+  redisClient.flushall(() => {
+    res.send("Data has been cleared");
+  });
+});
+
 app.post('/values', async (req, res) => {
   const index = req.body.index;
 

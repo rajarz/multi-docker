@@ -34,6 +34,11 @@ class Fib extends Component {
     this.setState({ index: '' });
   };
 
+  clearValues() {
+    await axios.post('/api/values/clear');
+    this.setState({ index: '' });
+  }
+
   renderSeenIndexes() {
     return this.state.seenIndexes.map(({ number }) => number).join(', ');
   }
@@ -63,7 +68,7 @@ class Fib extends Component {
           />
           <button>Submit</button>
         </form>
-
+        <button onClick={this.clearValues}>Clear</button>
         <h3>Indexes I have seen:</h3>
         {this.renderSeenIndexes()}
 
